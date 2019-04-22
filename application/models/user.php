@@ -45,19 +45,5 @@ class user extends CI_Model {
 			$this->db->where('id',$id);
 			return $this->db->delete('user');
 		}
-
-		public function tambahSepatu($path){
-			$data = [
-				"nama" => $this->input->post('sepatu', true),
-				"harga" => $this->input->post('harga', true),
-				"path" => $path,
-			];
-			$this->db->insert('sepatu',$data);
-		}
-
-		public function getSepatu(){
-			$data = $this->db->get('sepatu');
-			return $data->result_array();
-		}
 }
 

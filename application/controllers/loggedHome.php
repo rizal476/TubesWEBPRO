@@ -5,7 +5,8 @@ class loggedHome extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->load->Model('user');	
+        $this->load->Model('user');	
+        $this->load->Model('sepatuModel');
 		$this->load->library('form_validation');
         $this->load->library('session');
         $this->load->helper(array('form', 'url'));
@@ -24,7 +25,6 @@ class loggedHome extends CI_Controller {
     }
 
     public function listCustomer(){
-        $data['judul'] = '';
 		$data['customer'] = $this->user->getAllUser();
 		$this->load->view('list_Customer', $data);
     }
@@ -38,9 +38,59 @@ class loggedHome extends CI_Controller {
         $this->load->view('add_sepatu', array('error' => ' ' ));
     }
 
-    public function cekFoto(){
-        $data['sepatu'] = $this->user->getSepatu();
-        $this->load->view('cekFoto',$data);
+    public function lihatSepatu(){
+		$data['sepatu'] = $this->sepatuModel->getSepatu();
+		$this->load->view('list_sepatu', $data);
+    }
+
+    public function hapusSepatu($id){
+        $this->sepatuModel->hapusSepatu($id);
+        redirect('loggedHome/lihatSepatu');
+    }
+
+    public function ubahSepatu($id){
+        $q["data"] = $this->sepatuModel->getSepatuById($id);
+        $this->load->view('editSepatu',$q);
+    }
+
+    public function updateSepatu($id){
+        $config['upload_path']          =  './uploads/';//isi dengan nama folder temoat menyimpan gambar
+        $config['allowed_types']        =  'jpg|png';//isi dengan format/tipe gambar yang diterima
+        $config['max_size']             =  2000;//isi dengan ukuran maksimum yang bisa di upload
+        $config['max_width']            =  0;//isi dengan lebar maksimum gambar yang bisa di upload
+        $config['max_height']           = 0;//isi dengan panjang maksimum gambar yang bisa di upload
+
+        $this->load->library('upload', $config);
+        $q["data"] = $this->sepatuModel->getSepatuById($id);
+        // var_dump($q);
+        if(isset($_FILES['userfile']) && !empty($_FILES['userfile']['name'])){
+            if ( !$this->upload->do_upload('userfile')){
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('editSepatu',$q);
+            }
+            else{
+                $content = $this->upload->data();
+
+                $q[0] = [
+                    "id" => $q["data"][0]["id"],
+                    "nama" => $this->input->post('sepatu', true),
+                    "harga" => $this->input->post('harga', true),
+                    "path" => "uploads/".$content["file_name"],
+                ];
+                // echo $q[0]["id"];
+                // var_dump($q);
+            }
+        }
+        else {
+            $q[0] = [
+                "id" => $q["data"][0]["id"],
+                "nama" => $this->input->post('sepatu', true),
+                "harga" => $this->input->post('harga', true),
+                "path" => $q["data"][0]["path"],
+            ];
+        }
+        $this->sepatuModel->ubahSepatu($q);
+		redirect(base_url('loggedHome/lihatSepatu'));
     }
 
     public function do_upload(){
@@ -73,7 +123,7 @@ class loggedHome extends CI_Controller {
             //use flashdata to to show alert "added success"
             //back to controller mahasiswa }
             else{
-                $this->user->tambahSepatu($path);
+                $this->sepatuModel->tambahSepatu($path);
                 // echo "sukses";
 
                 // $this->session->set_flashdata('flash','ditambahkan');

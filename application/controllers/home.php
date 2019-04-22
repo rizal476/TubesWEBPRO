@@ -6,12 +6,13 @@ class home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->Model('user');	
+		$this->load->Model('sepatuModel');	
 		$this->load->library('form_validation');
 		$this->load->library('session');
 	}
 
 	public function index(){
-		$data['sepatu'] = $this->user->getSepatu();
+		$data['sepatu'] = $this->sepatuModel->getSepatu();
 		$this->load->view('body_home',$data);
 	}
 
@@ -121,14 +122,12 @@ class home extends CI_Controller {
 
 	public function updateProfile(){
 		$q = $this->user->getUser($this->session->userdata('email'));
-		//var_dump($q);
 		$this->user->updateUser($q[0]['id']);
-			// $this->session->set_flashdata('flash','ditambahkan');
 		redirect('home/profile');
 	}
 
 	public function sepatu(){
-		$data['sepatu'] = $this->user->getSepatu();
+		$data['sepatu'] = $this->sepatuModel->getSepatu();
 		$this->load->view('sepatu',$data);
 	}
 
