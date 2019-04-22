@@ -294,6 +294,7 @@
     	font-style: normal;
     	font-weight: 400;
     	margin: 0 0 20px;
+        padding-top: 150px;
 		}
 
 
@@ -415,139 +416,142 @@
 	</style>
 </head>
 <body>
-    <section class="isibody">
-    <div class="container isi">
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-7">
-
-            </div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-    </section>
-	<section class="body" style="width: 100%; height: 900px; background-color: #fafafa;">
+	<section class="body" style="width: 100%; height: 1050px; background-color: #fafafa;">
     <div class="container">
+        <h1 class="header-title" style="text-align: center;">YAS</h1>
+        <div class="deskripsi-header" style="text-align: center;">
+		    <div>Our best-seller sneakers series.</div>
+            <div>It is so light you will forget you even wear sneakers. Made out of FlexKnit Technology that will provide comfort and cool environment for your feet.</div>
+		</div>
         <div class="row">
-        <div class="col">
-		<div class="main-content" style="margin: 100px auto 0px;">
-						<div class="page-width">
-						    <div class="grid text-center">
-						      <div class="gridtengah">
-						        <header class="head">
-						          <h1 class="header-title">YAS</h1>
-						            <div class="deskripsi-header">
-						              <div>Our best-seller sneakers series.</div>
-									<div></div>
-									<div>It is so light you will forget you even wear sneakers. Made out of FlexKnit Technology that will provide comfort and cool environment for your feet.</div>
-									<div style="text-align: left;"></div>
-									</div>
-								</header>
-								<br>
-							  </div>
-							</div>
-							<div>
-								<!-- side container itu class buat, container dari menu kiri, sama menu sepatu nanti -->
-								<div class="side-container">
-								<div class="side-filter-menu">
-									<div class="filter-menu">
-										<div class="filter-group">
-										        <h2>Price</h2>
-										        <div class="content-baris">
-										        <ul class="nav-price ">
-										        	<li class="collection-container">
-										        		<!-- &#9746 itu symbol kayak checkbox -->
-										                <div class="collection-name" ><a href="">&#9746; Rp300,000 to Rp400,000</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="#">&#9746; Over Rp400,000</a></div>
-										            </li></ul>
-										        </div></div>
-										        <div class="filter-group smallbox">
-										        <h2>Size</h2>
-										        <div class="content-baris">
-										        <ul class="nav-size">
-										        	<!-- collection-container itu bukan container dari setiap box, jadi ya kalo mencet/hover area itu yang berubash -->
-										        	<li class="collection-container">
-										                <div class="collection-name"><a href="">36</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="">37</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="">41</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="">42</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="">43</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="">44</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="">45</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="" >46</a></div>
-										            </li></ul>
-										        </div></div>
-										        <div class="filter-group">
-										        <h2>Collections</h2>
-										        <ul class="nav-collections "></ul>
-										        </div></div>
-										        <div class="filter-group">
-										        <h2>Color</h2>
-										        <div class="filter-group">
-										        <ul class="nav-color ">
-										        	<li class="collection-container">
-										        		<!-- i class untuk bikin kotak warna,belum jadi -->
-										                <div class="collection-name"><a href="#"><i class="icon-biru"></i> Blue</a></div>
-										            </li><li class="collection-container">
-										                <div class="collection-name"><a href="#"><i class="icon-gray"></i> Gray</a></div>
-										            </li></ul>
-										        </div></div>
-										        <div class="filter-group">
-										      <h2>Collection</h2>
-										      <div class="content-baris">
-										        <ul class="nav-collections">
-										            <li class="collection-container">
-										                <div class="collection-name">
-										                    <a href="#" title="YAS"></i>&#9746; YAS</a>
-										                </div>
-										            </li>
-										        </ul>
-										      </div>
-										    </div>
-										    <div class="filter-group">
-										      <h2>Sort By</h2>
-										      <div class="content-baris">
-										        <ul class="nav-sortby">
-										        <li><div class="sortby"><a href="#" style="font-weight:bold;">Featured</a></div></li> 
-										        <li class="collection-container"><div class="sortby"><a href="#">Price: Low to High</a></div></li>
-										        <li class="collection-container"><div class="sortby"><a href="#">Price: High to Low</a></div></li>
-										        <li class="collection-container"><div class="sortby"><a href="#">Newest</a></div></li>
-										        <li class="collection-container"><div class="sortby"><a href="#">Newest Last</a></div></li>
-										        <li class="collection-container"><div class="sortby"><a href="#">Best Selling</a></div></li>
-										        <li class="collection-container"><div class="sortby"><a href="#">A-Z</a></div></li>
-										        <li class="collection-container"><div class="sortby"><a href="#">Z-A</a></div></li>
-										    	</ul>
-										       </div>
-										    </div>
-										</div>
-										<!-- mulai containner sepatu dari sini -->
-								        <div class="grid-container">
-                                              <div class="item1"><img src="<?php echo "../".$sepatu[0]["path"]?>"></div>
-                                              <!-- <div class="item2"><img src="assets/sepatuhitem.png"></div>
-                                              <div class="item3"><img src="assets/sepatuhitem.png"></div>  
-                                              <div class="item4"><img src="assets/sepatuhitem.png"></div>
-                                              <div class="item5"><img src="assets/sepatuhitem.png"></div>
-                                              <div class="item6"><img src="assets/sepatuhitem.png"></div> -->
+            <div class="col-3">
+                <div class="main-content" style="margin: 30px auto 0px;">
+                    <div class="page-width">
+                        <div class="grid text-center">
+                            <div class="gridtengah">
+                                <br>
+                            </div>
+                            <div>
+                                <div class="side-container">
+                                    <div class="side-filter-menu">
+                                        <div class="filter-menu">
+                                            <div class="filter-group">
+                                                <h2>Price</h2>
+                                                <div class="content-baris">
+                                                    <ul class="nav-price ">
+                                                        <li class="collection-container">
+                                                            <!-- &#9746 itu symbol kayak checkbox -->
+                                                            <div class="collection-name" ><a href="">&#9746; Rp300,000 to Rp400,000</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="#">&#9746; Over Rp400,000</a></div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="filter-group smallbox">
+                                                <h2>Size</h2>
+                                                <div class="content-baris">
+                                                    <ul class="nav-size">
+                                                        <!-- collection-container itu bukan container dari setiap box, jadi ya kalo mencet/hover area itu yang berubash -->
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="">36</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                             <div class="collection-name"><a href="">37</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="">41</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="">42</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="">43</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="">44</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="">45</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="" >46</a></div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="filter-group">
+                                                <h2>Collections</h2>
+                                                <ul class="nav-collections ">
+                                                </ul>
+                                            </div>
+                                            <div class="filter-group">
+                                                <h2>Color</h2>
+                                                <div class="filter-group">
+                                                    <ul class="nav-color ">
+                                                        <li class="collection-container">
+                                                            <!-- i class untuk bikin kotak warna,belum jadi -->
+                                                            <div class="collection-name"><a href="#"><i class="icon-biru"></i> Blue</a></div>
+                                                        </li>
+                                                        <li class="collection-container">
+                                                            <div class="collection-name"><a href="#"><i class="icon-gray"></i> Gray</a></div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="filter-group">
+                                                <h2>Collection</h2>
+                                                <div class="content-baris">
+                                                    <ul class="nav-collections">
+                                                        <li class="collection-container">
+                                                            <div class="collection-name">
+                                                                <a href="#" title="YAS"></i>&#9746; YAS</a>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="filter-group">
+                                                <h2>Sort By</h2>
+                                                <div class="content-baris">
+                                                    <ul class="nav-sortby">
+                                                        <li><div class="sortby"><a href="#" style="font-weight:bold;">Featured</a></div></li> 
+                                                        <li class="collection-container"><div class="sortby"><a href="#">Price: Low to High</a></div></li>
+                                                        <li class="collection-container"><div class="sortby"><a href="#">Price: High to Low</a></div></li>
+                                                        <li class="collection-container"><div class="sortby"><a href="#">Newest</a></div></li>
+                                                        <li class="collection-container"><div class="sortby"><a href="#">Newest Last</a></div></li>
+                                                        <li class="collection-container"><div class="sortby"><a href="#">Best Selling</a></div></li>
+                                                        <li class="collection-container"><div class="sortby"><a href="#">A-Z</a></div></li>
+                                                        <li class="collection-container"><div class="sortby"><a href="#">Z-A</a></div></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <button type="button" class="button-add-item btn-outline-secondary btn-lg">Add Product</button>
-									</div>
-                                </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-        </div>
-        </div>
-        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9" style="margin-top: 40px;">
+                <div class="row">
+                    <?php if (count($sepatu) <= 3) {?>
+                            <?php for ($i = 0; $i < count($sepatu); $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
+                    <?php };?>
+                </div>
+            </div>
+            <button type="button" class="button-add-item btn-outline-secondary btn-lg">Add Product</button>
+        </div>     
     </div>
     </section>
+
     <!-- HEADER -->
     <div id="navbar" class="container-fluid">
         <div class="row">
