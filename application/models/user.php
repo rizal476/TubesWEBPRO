@@ -56,7 +56,7 @@ class user extends CI_Model {
 		}
 
 		public function getSepatu(){
-			$data = $this->db->select('*')->from('sepatu')->where('nama','asd')->get();
+			$data = $this->db->get('sepatu');
 			return $data->result_array();
 		}
 }
