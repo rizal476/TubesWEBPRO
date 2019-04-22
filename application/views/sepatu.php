@@ -530,12 +530,12 @@
 										</div>
 										<!-- mulai containner sepatu dari sini -->
 								        <div class="grid-container">
-                                              <div class="item1"><img src="assets/sepatuhitem.png"></div>
-                                              <div class="item2"><img src="assets/sepatuhitem.png"></div>
+                                              <div class="item1"><img src="<?php echo "../".$sepatu[0]["path"]?>"></div>
+                                              <!-- <div class="item2"><img src="assets/sepatuhitem.png"></div>
                                               <div class="item3"><img src="assets/sepatuhitem.png"></div>  
                                               <div class="item4"><img src="assets/sepatuhitem.png"></div>
                                               <div class="item5"><img src="assets/sepatuhitem.png"></div>
-                                              <div class="item6"><img src="assets/sepatuhitem.png"></div>
+                                              <div class="item6"><img src="assets/sepatuhitem.png"></div> -->
                                         </div>
                                         <button type="button" class="button-add-item btn-outline-secondary btn-lg">Add Product</button>
 									</div>
