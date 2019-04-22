@@ -537,13 +537,30 @@
             </div>
             <div class="col-9" style="margin-top: 40px;">
                 <div class="row">
-                    <?php if (count($sepatu) <= 3) {?>
-                            <?php for ($i = 0; $i < count($sepatu); $i++) {?>
-                                <div class="col-3" style="text-align: center; margin-right: 30px;">
-                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
-                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
-                                </div>
-                            <?php };?>
+                    <?php if (((count($sepatu) <= 6) && (count($sepatu) >= 3)) || (count($sepatu) > 6)) {?>
+                        <?php for ($i = 0; $i < 3; $i++) {?>
+                            <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                 <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                            </div>
+                        <?php };?>
+                    <?php };?>
+                </div>
+                <div class="row">
+                    <?php if ((count($sepatu) <= 6) && (count($sepatu) > 3)) {?>
+                        <?php for ($i = 3; $i < count($sepatu); $i++) {?>
+                            <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                            </div>
+                        <?php };?>
+                    <?php } else {?>
+                        <?php for ($i = 3; $i < 6; $i++) {?>
+                            <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                            </div>
+                        <?php };?>
                     <?php };?>
                 </div>
             </div>
