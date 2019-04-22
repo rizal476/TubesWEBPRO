@@ -128,7 +128,8 @@ class home extends CI_Controller {
 	}
 
 	public function sepatu(){
-		$this->load->view('sepatu');
+		$data['sepatu'] = $this->user->getSepatu();
+		$this->load->view('sepatu',$data);
 	}
 
 }
