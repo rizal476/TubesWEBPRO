@@ -1,0 +1,14 @@
+.tag{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 500px;
+    font-size: 35px;
+}
+
+.menux{
+    z-index: 3;
+}
+
+#mySidenav{
+    z-index: 3;
+}

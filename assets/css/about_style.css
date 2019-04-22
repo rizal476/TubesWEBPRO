@@ -1,0 +1,13 @@
+.container{
+    width: 100%; /*can be in percentage also.*/
+    position:absolute; /*it can be fixed too*/
+    left:0; right:0;
+    top:0; bottom:0;
+    margin: 200px auto 0px;
+}
+
+p {
+    font-size: 35px;
+    text-align: center;
+}
+
