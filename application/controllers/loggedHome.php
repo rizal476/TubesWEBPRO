@@ -137,5 +137,32 @@ class loggedHome extends CI_Controller {
             // echo $namaFoto;
             // $this->load->view('V_Upload_success',$content);
         }   
+    }
+    
+    public function profile(){
+		$q = $this->user->getUserById($this->session->userdata('id'));
+		// echo $this->session->userdata('id');
+		// var_dump($q);
+			$data_session = array(
+				'nama' => $q[0]["nama_depan"]." ".$q[0]["nama_belakang"],
+				'email' => $q[0]["email"],
+				'nama_depan' => $q[0]["nama_depan"],
+				'nama_belakang' => $q[0]["nama_belakang"],
+				'status' => "login",
+				'id' => $q[0]["id"]
+				);
+			
+			$this->session->set_userdata($data_session);
+		$this->load->view('profile');
+	}
+
+	public function editProfile(){
+		$this->load->view('editProfile');
+	}
+
+	public function updateProfile(){
+		$q = $this->user->getUser($this->session->userdata('email'));
+		$this->user->updateUser($q[0]['id']);
+		redirect('home/profile');
 	}
 }

@@ -41,7 +41,7 @@
                 <br>
                 <br>
                 <br>
-                <a href="<?php echo base_url()?>home/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
                 <a href="<?php echo base_url()?>loggedHome/listCustomer">List Customer</a>
                 <a href="<?php echo base_url()?>loggedHome/lihatSepatu">List Sepatu</a>
                 <a href="<?php echo base_url()?>home/search">Search</a>

@@ -29,7 +29,7 @@
                         ALL PRODUCTS
                     </button>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?php echo base_url()?>home/sepatu">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 1</a>
                         <a class="dropdown-item" href="#">Link 2</a>
                         <a class="dropdown-item" href="#">Link 3</a>
                         </div>
@@ -41,9 +41,21 @@
                 <br>
                 <br>
                 <br>
-                <a href="<?php echo base_url()?>home/login">Login</a>
-                <a href="<?php echo base_url()?>home/createAccount">Create Account</a>
-                <a href="<?php echo base_url()?>home/search">Search</a>
+                <?php if ($this->session->userdata("email") == "") { ?>
+                    <a href="<?php echo base_url()?>home/login">Login</a>
+                    <a href="<?php echo base_url()?>home/search">Search</a>
+                    <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                <?php } else if ($this->session->userdata("email") == "admin@admin.com") {?>
+                    <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                    <a href="<?php echo base_url()?>loggedHome/listCustomer">List Customer</a>
+                    <a href="<?php echo base_url()?>loggedHome/lihatSepatu">List Sepatu</a>
+                    <a href="<?php echo base_url()?>home/search">Search</a>
+                    <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                <?php } else {?>
+                    <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                    <a href="<?php echo base_url()?>home/search">Search</a>
+                    <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                <?php };?>
                 </div>
                 <div class="menu" onclick="openNav()">
                     <div class="bar1"></div>
