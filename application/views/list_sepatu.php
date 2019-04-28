@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col">
-                    <h3 class="text-center">List Sepatu</h3>
+                    <h3 class="text-center">List Produk</h3>
                     <?php if (empty($sepatu)) : ?>
                     <div class="alert alert-danger" role="alert">
                         Data tidak ditemukan
@@ -27,7 +27,8 @@
                     <table class="table mt-5">
                         <thead>
                             <tr>
-                                <th class="text-center" scope="col">Nama Sepatu</th>
+                                <th class="text-center" scope="col">Nama Produk</th>
+                                <th class="text-center" scope="col">Tipe</th>
                                 <th class="text-center" scope="col">Harga</th>
                                 <th class="text-center" scope="col">Foto</th>
                             </tr>
@@ -35,6 +36,7 @@
                         <tbody>
                             <tr><?php foreach ($sepatu as $item) :  ?>
                                 <td class="text-center"><?= $item["nama"]; ?></td>
+                                <td class="text-center"><?= $item["tipe"]; ?></td>
                                 <td class="text-center"><?= $item["harga"]; ?></td>
                                 <td class="text-center"><img src="<?php echo "../".$item["path"]?>" style="width: 50px; height: 50px;"/></td>
                                 <td class="text-center">
@@ -75,11 +77,21 @@
                 <br>
                 <br>
                 <br>
-                <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
-                <a href="<?php echo base_url()?>loggedHome/listCustomer">List Customer</a>
-                <a href="<?php echo base_url()?>loggedHome/lihatSepatu">List Sepatu</a>
-                <a href="<?php echo base_url()?>home/search">Search</a>
-                <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                <?php if ($this->session->userdata("email") == "") { ?>
+                    <a href="<?php echo base_url()?>home/login">Login</a>
+                    <a href="<?php echo base_url()?>home/search">Search</a>
+                    <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                <?php } else if ($this->session->userdata("email") == "admin@admin.com") {?>
+                    <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                    <a href="<?php echo base_url()?>loggedHome/listCustomer">List Customer</a>
+                    <a href="<?php echo base_url()?>loggedHome/lihatSepatu">List Produk</a>
+                    <a href="<?php echo base_url()?>home/search">Search</a>
+                    <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                <?php } else {?>
+                    <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                    <a href="<?php echo base_url()?>home/search">Search</a>
+                    <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                <?php };?>
                 </div>
                 <div class="menu" onclick="openNav()">
                     <div class="bar1"></div>

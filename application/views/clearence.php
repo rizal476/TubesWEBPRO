@@ -418,9 +418,9 @@
 <body>
 	<section class="body" style="width: 100%; height: 1050px; background-color: #fafafa;">
     <div class="container">
-        <h1 class="header-title" style="text-align: center;">Clearence Sale</h1>
+        <h1 class="header-title" style="text-align: center;">Clearance Sale</h1>
         <div class="deskripsi-header" style="text-align: center;">
-            <div>Potongan harga hingga 20%. Stok Terbatas!</div>
+            <div></div>
 		</div>
         <div class="row">
             <div class="col-3">
@@ -505,7 +505,7 @@
                                                     <ul class="nav-collections">
                                                         <li class="collection-container">
                                                             <div class="collection-name">
-                                                                <a href="#" title="Dressolia"></i>&#9746; Dresssolia by NAH Project</a>
+                                                                <a href="#" title="YAS"></i>&#9746; YAS</a>
                                                             </div>
                                                         </li>
                                                     </ul>
@@ -536,34 +536,55 @@
             </div>
             <div class="col-9" style="margin-top: 40px;">
                 <div class="row">
-                    <?php if (((count($sepatu) <= 6) && (count($sepatu) >= 3)) || (count($sepatu) > 6)) {?>
-                        <?php for ($i = 0; $i < 3; $i++) {?>
+                    <?php if (count($sepatu) < 6){?>
+                        <?php if (count($sepatu) == 1){?>
                             <div class="col-3" style="text-align: center; margin-right: 30px;">
-                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
-                                 <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                <img src="<?php echo "../".$sepatu[0]["path"]?>" style="width: 100%; height: 100%;"/>
+                                <h3><?php echo $sepatu[0]["nama"]?></h3>
                             </div>
-                        <?php };?>
+                        <?php } else if (count($sepatu) == 2){?>
+                            <?php for ($i = 0; $i < 2; $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
+                        <?php } else if (count($sepatu) >= 3) {?>
+                            <?php for ($i = 0; $i < 3; $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
+                        <?php };?>  
                     <?php };?>
                 </div>
                 <div class="row">
-                    <?php if ((count($sepatu) <= 6) && (count($sepatu) > 3)) {?>
-                        <?php for ($i = 3; $i < count($sepatu); $i++) {?>
-                            <div class="col-3" style="text-align: center; margin-right: 30px;">
-                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
-                                <h3><?php echo $sepatu[$i]["nama"]?></h3>
-                            </div>
+                    <?php if (count($sepatu) >= 6) {?>
+                        <?php if (count($sepatu) == 6) {?>
+                            <?php for ($i = 3; $i < count($sepatu); $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
+                        <?php } else if (count($sepatu) > 6) {?>
+                            <?php for ($i = 3; $i < 6; $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
                         <?php };?>
-                    <?php } else {?>
-                        <?php for ($i = 3; $i < 6; $i++) {?>
-                            <div class="col-3" style="text-align: center; margin-right: 30px;">
-                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
-                                <h3><?php echo $sepatu[$i]["nama"]?></h3>
-                            </div>
-                        <?php };?>
+                    <?php };?>
+                    <?php if (count($sepatu) == 0) {?>
+                        <?php echo "<h3>Tidak ada produk</h3>"?>
                     <?php };?>
                 </div>
             </div>
-            <button type="button" class="button-add-item btn-outline-secondary btn-lg">Add Product</button>
+            <?php if ($this->session->userdata("email") == "admin@admin.com") {?>
+                <button class="button-add-item btn-outline-secondary btn-lg" onclick="window.location.href = '<?php echo base_url()?>loggedHome/addSepatu';">Add Product</button>
+            <?php };?>
         </div>     
     </div>
     </section>
@@ -594,9 +615,21 @@
                         <a href="<?php echo base_url()?>home/about">ABOUT NAH PROJECT</a>
                         <a href="#">UPCOMING NAH PROJECT</a>
                         <br><br><br>
-                        <a href="<?php echo base_url()?>home/login">Login</a>
-                        <a href="<?php echo base_url()?>home/createAccount">Create Account</a>
-                        <a href="<?php echo base_url()?>home/search">Search</a>
+                        <?php if ($this->session->userdata("email") == "") { ?>
+                            <a href="<?php echo base_url()?>home/login">Login</a>
+                            <a href="<?php echo base_url()?>home/search">Search</a>
+                            <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                        <?php } else if ($this->session->userdata("email") == "admin@admin.com") {?>
+                            <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                            <a href="<?php echo base_url()?>loggedHome/listCustomer">List Customer</a>
+                            <a href="<?php echo base_url()?>loggedHome/lihatSepatu">List Produk</a>
+                            <a href="<?php echo base_url()?>home/search">Search</a>
+                            <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                        <?php } else {?>
+                            <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                            <a href="<?php echo base_url()?>home/search">Search</a>
+                            <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                        <?php };?>
                     </div>
                     <div class="menu" onclick="openNav()">
                         <div class="bar1"></div>

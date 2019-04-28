@@ -578,9 +578,14 @@
                             <?php };?>
                         <?php };?>
                     <?php };?>
+                    <?php if (count($sepatu) == 0) {?>
+                        <?php echo "<h3>Tidak ada produk</h3>"?>
+                    <?php };?>
                 </div>
             </div>
-            <button class="button-add-item btn-outline-secondary btn-lg" onclick="window.location.href = '<?php echo base_url()?>loggedHome/addSepatu';">Add Product</button>
+            <?php if ($this->session->userdata("email") == "admin@admin.com") {?>
+                <button class="button-add-item btn-outline-secondary btn-lg" onclick="window.location.href = '<?php echo base_url()?>loggedHome/addSepatu';">Add Product</button>
+            <?php };?>
         </div>     
     </div>
     </section>
@@ -611,9 +616,21 @@
                         <a href="<?php echo base_url()?>home/about">ABOUT NAH PROJECT</a>
                         <a href="#">UPCOMING NAH PROJECT</a>
                         <br><br><br>
-                        <a href="<?php echo base_url()?>home/login">Login</a>
-                        <a href="<?php echo base_url()?>home/createAccount">Create Account</a>
-                        <a href="<?php echo base_url()?>home/search">Search</a>
+                        <?php if ($this->session->userdata("email") == "") { ?>
+                            <a href="<?php echo base_url()?>home/login">Login</a>
+                            <a href="<?php echo base_url()?>home/search">Search</a>
+                            <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                        <?php } else if ($this->session->userdata("email") == "admin@admin.com") {?>
+                            <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                            <a href="<?php echo base_url()?>loggedHome/listCustomer">List Customer</a>
+                            <a href="<?php echo base_url()?>loggedHome/lihatSepatu">List Produk</a>
+                            <a href="<?php echo base_url()?>home/search">Search</a>
+                            <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                        <?php } else {?>
+                            <a href="<?php echo base_url()?>loggedHome/profile">Logged in as <?php echo $this->session->userdata("nama");?></a>
+                            <a href="<?php echo base_url()?>home/search">Search</a>
+                            <a href="<?php echo base_url()?>home/logout">Log Out</a>
+                        <?php };?>
                     </div>
                     <div class="menu" onclick="openNav()">
                         <div class="bar1"></div>
