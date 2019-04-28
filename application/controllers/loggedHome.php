@@ -75,6 +75,7 @@ class loggedHome extends CI_Controller {
                     "id" => $q["data"][0]["id"],
                     "nama" => $this->input->post('sepatu', true),
                     "harga" => $this->input->post('harga', true),
+                    "tipe" => $this->input->post('tipe', true),
                     "path" => "uploads/".$content["file_name"],
                 ];
                 // echo $q[0]["id"];
@@ -86,10 +87,14 @@ class loggedHome extends CI_Controller {
                 "id" => $q["data"][0]["id"],
                 "nama" => $this->input->post('sepatu', true),
                 "harga" => $this->input->post('harga', true),
+                "tipe" => $this->input->post('tipe', true),
                 "path" => $q["data"][0]["path"],
             ];
         }
-        $this->sepatuModel->ubahSepatu($q);
+        $temp = $this->input->post('tipe',true);
+        if ($temp == "YAS" || $temp == "SN" || $temp == "APPAREL" || $temp == "DRESS" || $temp == "CLEARANCE") {
+            $this->sepatuModel->ubahSepatu($q);
+        }
 		redirect(base_url('loggedHome/lihatSepatu'));
     }
 

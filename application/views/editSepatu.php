@@ -35,6 +35,10 @@
                                     <input type="text" value="<?php echo $data[0]["harga"]?>" class="input" name="harga">
                                 </div>
                                 <div class="form-group">
+                                    <label>Tipe</label>
+                                    <input type="text" value="<?php echo $data[0]["tipe"]?>" class="input" name="tipe">YAS / SN / APPAREL / DRESS / CLEARANCE
+                                </div>
+                                <div class="form-group">
                                     <label>Foto</label>
                                     <img src="<?php echo "http://localhost/TUBES/".$data[0]["path"]?>" style="width: 100px; height: 100px;"/>
                                 </div>
@@ -65,9 +69,11 @@
                                     ALL PRODUCTS
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Link 1</a>
-                                <a class="dropdown-item" href="#">Link 2</a>
-                                <a class="dropdown-item" href="#">Link 3</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/YAS">Yoga Arizona Series</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/SN">Sneaker Series</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/APPAREL">Apparel</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/DRESS">Dress</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/clearance">Clearance Sale</a>
                             </div>
                         </div>
                         <!-- </a> -->

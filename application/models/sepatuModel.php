@@ -36,6 +36,7 @@ class sepatuModel extends CI_Model {
             $data = [
 				"nama" => $q[0]["nama"],
 				"harga" => $q[0]["harga"],
+				"tipe" => $q[0]["tipe"],
 				"path" => $q[0]["path"],
 			];
 			$this->db->where('id',$q[0]["id"]);
