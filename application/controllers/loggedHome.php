@@ -112,6 +112,7 @@ class loggedHome extends CI_Controller {
 
             $this->form_validation->set_rules('sepatu', 'Nama', 'required');
             $this->form_validation->set_rules('harga', 'Harga', 'required');
+            $this->form_validation->set_rules('tipe', 'Tipe', 'required');
             
             // conditon in form_validation, if user input form = false, then load page "tambah" again
             if ($this->form_validation->run() == FALSE){
@@ -123,7 +124,10 @@ class loggedHome extends CI_Controller {
             //use flashdata to to show alert "added success"
             //back to controller mahasiswa }
             else{
-                $this->sepatuModel->tambahSepatu($path);
+                $temp = $this->input->post('tipe',true);
+                if ($temp == "YAS" || $temp == "SN" || $temp == "APPAREL" || $temp == "DRESS" || $temp == "CLEARANCE"){
+                    $this->sepatuModel->tambahSepatu($path);
+                }
                 // echo "sukses";
 
                 // $this->session->set_flashdata('flash','ditambahkan');

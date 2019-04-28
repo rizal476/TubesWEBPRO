@@ -6,6 +6,7 @@ class sepatuModel extends CI_Model {
 			$data = [
 				"nama" => $this->input->post('sepatu', true),
 				"harga" => $this->input->post('harga', true),
+				"tipe" => $this->input->post('tipe',true),
 				"path" => $path,
 			];
 			$this->db->insert('sepatu',$data);
@@ -14,6 +15,11 @@ class sepatuModel extends CI_Model {
 		public function getSepatu(){
 			$data = $this->db->get('sepatu');
 			return $data->result_array();
+		}
+		
+		public function getSepatuByTipe($tipe){
+			$q = $this->db->select('*')->from('sepatu')->where('tipe',$tipe)->get();
+			return $q->result_array();
         }
         
         public function hapusSepatu($id){

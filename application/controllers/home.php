@@ -99,9 +99,30 @@ class home extends CI_Controller {
 		redirect('home');
 	}
 
-	public function sepatu(){
-		$data['sepatu'] = $this->sepatuModel->getSepatu();
+	public function YAS(){
+		$data['sepatu'] = $this->sepatuModel->getSepatuByTipe("YAS");
 		$this->load->view('sepatu',$data);
+		// var_dump($data["sepatu"]);
+	}
+
+	public function SN(){
+		$data['sepatu'] = $this->sepatuModel->getSepatu();
+		$this->load->view('sn',$data);
+	}
+
+	public function APPAREL(){
+		$data['sepatu'] = $this->sepatuModel->getSepatu();
+		$this->load->view('apparel',$data);
+	}
+
+	public function DRESS(){
+		$data['sepatu'] = $this->sepatuModel->getSepatu();
+		$this->load->view('dress',$data);
+	}
+
+	public function clearance(){
+		$data['sepatu'] = $this->sepatuModel->getSepatu();
+		$this->load->view('clearence',$data);
 	}
 
 }

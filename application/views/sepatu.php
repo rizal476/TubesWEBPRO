@@ -537,34 +537,50 @@
             </div>
             <div class="col-9" style="margin-top: 40px;">
                 <div class="row">
-                    <?php if (((count($sepatu) <= 6) && (count($sepatu) >= 3)) || (count($sepatu) > 6)) {?>
-                        <?php for ($i = 0; $i < 3; $i++) {?>
+                    <?php if (count($sepatu) < 6){?>
+                        <?php if (count($sepatu) == 1){?>
                             <div class="col-3" style="text-align: center; margin-right: 30px;">
-                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
-                                 <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                <img src="<?php echo "../".$sepatu[0]["path"]?>" style="width: 100%; height: 100%;"/>
+                                <h3><?php echo $sepatu[0]["nama"]?></h3>
                             </div>
-                        <?php };?>
+                        <?php } else if (count($sepatu) == 2){?>
+                            <?php for ($i = 0; $i < 2; $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
+                        <?php } else if (count($sepatu) >= 3) {?>
+                            <?php for ($i = 0; $i < 3; $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
+                        <?php };?>  
                     <?php };?>
                 </div>
                 <div class="row">
-                    <?php if ((count($sepatu) <= 6) && (count($sepatu) > 3)) {?>
-                        <?php for ($i = 3; $i < count($sepatu); $i++) {?>
-                            <div class="col-3" style="text-align: center; margin-right: 30px;">
-                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
-                                <h3><?php echo $sepatu[$i]["nama"]?></h3>
-                            </div>
-                        <?php };?>
-                    <?php } else {?>
-                        <?php for ($i = 3; $i < 6; $i++) {?>
-                            <div class="col-3" style="text-align: center; margin-right: 30px;">
-                                <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
-                                <h3><?php echo $sepatu[$i]["nama"]?></h3>
-                            </div>
+                    <?php if (count($sepatu) >= 6) {?>
+                        <?php if (count($sepatu) == 6) {?>
+                            <?php for ($i = 3; $i < count($sepatu); $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
+                        <?php } else if (count($sepatu) > 6) {?>
+                            <?php for ($i = 3; $i < 6; $i++) {?>
+                                <div class="col-3" style="text-align: center; margin-right: 30px;">
+                                    <img src="<?php echo "../".$sepatu[$i]["path"]?>" style="width: 100%; height: 100%;"/>
+                                    <h3><?php echo $sepatu[$i]["nama"]?></h3>
+                                </div>
+                            <?php };?>
                         <?php };?>
                     <?php };?>
                 </div>
             </div>
-            <button type="button" class="button-add-item btn-outline-secondary btn-lg">Add Product</button>
+            <button class="button-add-item btn-outline-secondary btn-lg" onclick="window.location.href = '<?php echo base_url()?>loggedHome/addSepatu';">Add Product</button>
         </div>     
     </div>
     </section>
@@ -583,9 +599,11 @@
                                     ALL PRODUCTS
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Link 1</a>
-                                <a class="dropdown-item" href="#">Link 2</a>
-                                <a class="dropdown-item" href="#">Link 3</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/YAS">Yoga Arizona Series</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/SN">Sneaker Series</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/APPAREL">Apparel</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/DRESS">Dress</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/clearance">Clearance Sale</a>
                             </div>
                         </div>
      

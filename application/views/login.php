@@ -52,9 +52,11 @@
                                     ALL PRODUCTS
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Link 1</a>
-                                <a class="dropdown-item" href="#">Link 2</a>
-                                <a class="dropdown-item" href="#">Link 3</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/YAS">Yoga Arizona Series</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/SN">Sneaker Series</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/APPAREL">Apparel</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/DRESS">Dress</a>
+                                <a class="dropdown-item" href="<?php echo base_url()?>home/clearance">Clearance Sale</a>
                             </div>
                         </div>
                         <!-- </a> -->
