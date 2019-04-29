@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <form action="<?php echo base_url()?>home/editProfile">
+                    <form action="<?php echo base_url()?>loggedHome/editProfile">
                         <div class="form-group row">
                             <label for="staticEmail" class="col-sm-2 col-form-label">Nama Depan</label>
                             <div class="col-sm-10">

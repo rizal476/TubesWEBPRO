@@ -172,6 +172,6 @@ class loggedHome extends CI_Controller {
 	public function updateProfile(){
 		$q = $this->user->getUser($this->session->userdata('email'));
 		$this->user->updateUser($q[0]['id']);
-		redirect('home/profile');
+		redirect('loggedHome/profile');
 	}
 }
